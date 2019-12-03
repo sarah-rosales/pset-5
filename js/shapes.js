@@ -18,8 +18,6 @@ window.onload = function() {
     // there are six event listeners being added for the staff solutions. you'll have an
     // equivalent set of six event listeners for your solutions. the first one is done for you.
 
-//delete this comment later but *scream* tis initial commit
-
     document.getElementById("hello").onclick = sayHello;
 }
 
@@ -27,8 +25,13 @@ window.onload = function() {
  * Exercise 1.
  */
 
-const sayHello = function() {
+const sayHello = function draw() {
     // write your exercise 1 code here
+    var ctx = document.getElementById("student-canvas-1").getContext("2d");
+    ctx.font = "48px sans-serif";
+    ctx.strokeText("", 30, 70);
+    let sign = prompt("Message:");
+    //ahhhh do this at home you can do this
 };
 
 /*
