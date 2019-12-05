@@ -25,18 +25,17 @@ window.onload = function() {
  * Exercise 1.
  */
 
-const sayHello = function draw() {
+const sayHello = function () {
     // write your exercise 1 code here
-    var ctx = document.getElementById("student-canvas-1").getContext("2d");
-    ctx.font = "48px sans-serif";
-    ctx.strokeText(sign, 30, 70);
-    ctx.clearRect(0, 0, 1024, 128);
-    var sign = prompt("Message:");
-
+    let sign = prompt("Message:");
     while (sign.length >= 50) {
       alert("Your message is too long. Keep it under 50 characters.");
       sign = prompt("Message:")
     }
+   const ctx = document.getElementById("student-canvas-1").getContext("2d");
+   ctx.font = "48px sans-serif";
+   ctx.strokeText(sign, 30, 70);
+   ctx.clearRect(0, 0, 1024, 128);
 
 
 };
