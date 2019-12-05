@@ -29,9 +29,16 @@ const sayHello = function draw() {
     // write your exercise 1 code here
     var ctx = document.getElementById("student-canvas-1").getContext("2d");
     ctx.font = "48px sans-serif";
-    ctx.strokeText("", 30, 70);
-    let sign = prompt("Message:");
-    //ahhhh do this at home you can do this
+    ctx.strokeText(sign, 30, 70);
+    ctx.clearRect(0, 0, 1024, 128);
+    var sign = prompt("Message:");
+
+    while (sign.length >= 50) {
+      alert("Your message is too long. Keep it under 50 characters.");
+      sign = prompt("Message:")
+    }
+
+
 };
 
 /*
