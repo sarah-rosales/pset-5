@@ -32,16 +32,23 @@ window.onload = function() {
  */
 
 const sayHello = function() {
+
   let sign = prompt("Message:");
-  let len = sign.length;
-  while (sign.length >= 50) {
-    alert("Your message is too long. Keep it under 50 characters.");
-    sign = prompt("Message:");
+  let len = null;
+
+  if (sign !== null) {
+    len = sign.length;
+
+    while (sign.length >= 50) {
+      alert("Your message is too long. Keep it under 50 characters.");
+      sign = prompt("Message:");
+    }
   }
+
   const ctx = document.getElementById("student-canvas-1").getContext("2d");
     ctx.font = "48px sans-serif";
     ctx.clearRect(0, 0, 1024, 128);
-    ctx.strokeText(sign, 30, 70);
+    if (sign !== null) ctx.strokeText(sign, 30, 70);
 
 }
 /*
