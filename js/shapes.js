@@ -56,7 +56,6 @@ const sayHello = function() {
  */
 
 const drawRectangle = function() {
-  const ctx = document.getElementById("student-canvas-2").getContext("2d");
   const width = 1024;
   const height = 512;
   let rect_width = prompt("Width:");
@@ -100,12 +99,12 @@ const drawRectangle = function() {
 
   while (Number.isNaN(y_coordinate) && !Number.isInteger(y_coordinate)) {
     alert("One of your values is not a number.");
-    y_coordinate = prompt("y:");
+    y_coordinate = prompt("Y:");
   }
 
-  ctx.strokeStyle = "gray";
-  ctx.clearRect(0, 0, 1024, 512);
-  ctx.strokeRect(x_coordinate, y_coordinate, 1024, 512);
+  const ctx = document.getElementById("student-canvas-2").getContext("2d");
+    ctx.clearRect(0, 0, 1024, 512);
+    ctx.strokeRect(x_coordinate, y_coordinate, rect_width, rect_height);
 };
 
 /*
