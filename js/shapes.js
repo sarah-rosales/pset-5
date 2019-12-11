@@ -51,11 +51,13 @@ const sayHello = function() {
     if (sign !== null) ctx.strokeText(sign, 30, 70);
 
 }
+
 /*
  * Exercise 2.
  */
 
 const drawRectangle = function() {
+
   const width = 1024;
   const height = 512;
   let rect_width = prompt("Width:");
@@ -112,7 +114,18 @@ const drawRectangle = function() {
  */
 
 const drawColoredRectangle = function() {
-    // write your exercise 3 code here
+
+  let sign = prompt("Color:");
+
+  switch (sign.toLowerCase()) {
+    case "black":
+      ctx.fillStyle = "black"
+      break;
+
+  }
+  const ctx = document.getElementById("student-canvas-3").getContext("2d");
+    ctx.clearRect(10, 10, 100, 50);
+    ctx.fillRect(10, 10, 100, 50);
 };
 
 /*
@@ -128,7 +141,7 @@ const drawTriangle = function() {
  */
 
 const drawFace = function() {
-    // write your exercise 4 code here
+    // write your exercise 5 code here
 };
 
 /*
@@ -136,5 +149,5 @@ const drawFace = function() {
  */
 
 const drawPyramid = function() {
-    // write your exercise 5 code here
+    // write your exercise 6 code here
 };
