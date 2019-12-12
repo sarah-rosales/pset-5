@@ -69,25 +69,25 @@ const drawRectangle = function() {
     if (rect_width < 1 && rect_width > width) {
       alert("Your width must be between 1 and 1024.");
       rect_width = prompt("Width:");
-    } else if (Number.isNaN(rect_width) && !Number.isInteger(rect_width)) {
+    } else if (isNaN(rect_width) && !isInteger(rect_width)) {
       alert("One of your values is not a number.");
       rect_width = prompt("Width:");
     } else if (rect_height < 1 && rect_height > height) {
       alert("Your height must be between 1 and 1024.");
       rect_height = prompt("Height:");
-    } else if (Number.isNaN(rect_height) && !Number.isInteger(rect_height)) {
+    } else if (isNaN(rect_height) && !isInteger(rect_height)) {
       alert("One of your values is not a number.");
       rect_height = prompt("Height:");
     } else if (x_coordinate < 1 && x_coordinate > width) {
       alert("Your x-coordinate must be between 1 and 1024.");
       x_coordinate = prompt("X:");
-    } else if (Number.isNaN(x_coordinate) && !Number.isInteger(x_coordinate)) {
+    } else if (isNaN(x_coordinate) && !isInteger(x_coordinate)) {
       alert("One of your values is not a number.");
       x_coordinate = prompt("X:");
     } else if (y_coordinate < 1 && y_coordinate > height) {
       alert("Your y-coordinate must be between 1 and 1024.");
       y_coordinate = prompt("Y:");
-    } else if (Number.isNaN(y_coordinate) && !Number.isInteger(y_coordinate)) {
+    } else if (isNaN(y_coordinate) && !isInteger(y_coordinate)) {
       alert("One of your values is not a number.");
       y_coordinate = prompt("Y:");
     }
@@ -96,47 +96,109 @@ const drawRectangle = function() {
       ctx.clearRect(0, 0, 1024, 512);
       ctx.strokeRect(x_coordinate, y_coordinate, rect_width, rect_height);
 
-};
+//FIX LATER AGGG
+
+}
 
 /*
  * Exercise 3.
  */
 
 const drawColoredRectangle = function() {
+  let canvas = document.getElementById("student-canvas-3");
+  let ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, 1024, 128);
 
-  let sign = prompt("Color:");
+  let color = prompt("Color:");
+    color = color.toLowerCase();
 
-  switch (sign.toLowerCase()) {
-    case "black":
-      ctx.fillStyle = "black"
-      break;
-
-  }
-  const ctx = document.getElementById("student-canvas-3").getContext("2d");
-    ctx.clearRect(10, 10, 100, 50);
-    ctx.fillRect(10, 10, 100, 50);
-};
+    switch (color) {
+      case "black":
+        ctx.clearRect(10, 10, 1024, 128);
+        ctx.beginPath();
+        ctx.rect(10, 10, 100, 50);
+        ctx.fillStyle = "black";
+        ctx.fill();
+        break;
+      case "blue":
+        ctx.clearRect(10, 10, 1024, 128);
+        ctx.beginPath();
+        ctx.rect(10, 10, 100, 50);
+        ctx.fillStyle = "blue";
+        ctx.fill();
+        break;
+      case "green":
+        ctx.clearRect(10, 10, 1024, 128);
+        ctx.beginPath();
+        ctx.rect(10, 10, 100, 50);
+        ctx.fillStyle = "green";
+        ctx.fill();
+        break;
+      case "orange":
+        ctx.clearRect(10, 10, 1024, 128);
+        ctx.beginPath();
+        ctx.rect(10, 10, 100, 50);
+        ctx.fillStyle = "orange";
+        ctx.fill();
+        break;
+      case "purple":
+        ctx.clearRect(10, 10, 1024, 128);
+        ctx.beginPath();
+        ctx.rect(10, 10, 100, 50);
+        ctx.fillStyle = "purple";
+        ctx.fill();
+        break;
+      case "red":
+        ctx.clearRect(10, 10, 1024, 128);
+        ctx.beginPath();
+        ctx.rect(10, 10, 100, 50);
+        ctx.fillStyle = "red";
+        ctx.fill();
+        break;
+      case "yellow":
+        ctx.clearRect(10, 10, 1024, 128);
+        ctx.beginPath();
+        ctx.rect(10, 10, 100, 50);
+        ctx.fillStyle = "yellow";
+        ctx.fill();
+        break;
+      default:
+        alert(color + " is not a supported color."); {
+        color = prompt("Color:");
+        }
+        break;
+    }
+//AHHH
+}
 
 /*
  * Exercise 4.
  */
 
 const drawTriangle = function() {
-    // write your exercise 4 code here
-};
+  const ctx = document.getElementById("student-canvas-4").getContext("2d");
+  let height = prompt("Side 1:")
+  let base = prompt("Side 2:")
+  let hypotenuse = prompt("Side 3:")
+  ctx.clearRect(0, 0, 1024, 512);
+
+
+
+}
+
 
 /*
  * Exercise 5.
  */
 
 const drawFace = function() {
-    // write your exercise 4 code here
-};
+    // write your exercise 5 code here
+}
 
 /*
  * Exercise 6 (extra credit).
  */
 
 const drawPyramid = function() {
-    // write your exercise 5 code here
-};
+    // write your exercise 6 code here
+}
