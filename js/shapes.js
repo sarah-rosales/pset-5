@@ -22,7 +22,7 @@ window.onload = function() {
     document.getElementById("rectangle").onclick = drawRectangle;
     document.getElementById("colored-rectangle").onclick = drawColoredRectangle;
     document.getElementById("triangle").onclick = drawTriangle;
-    document.getElementById("smile").onclick = drawFaceStaff;
+    document.getElementById("smile").onclick = drawFace;
     document.getElementById("pyramid").onclick = drawPyramid;
 }
 
@@ -215,13 +215,52 @@ const drawTriangle = function() {
   }
 }
 
-
 /*
  * Exercise 5.
  */
 
 const drawFace = function() {
-    // write your exercise 5 code here
+  let canvas = document.getElementById("student-canvas-5")
+  let ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, 1024, 512);
+
+  let radius = prompt("Radius:");
+
+    while (radius == null) {
+      ctx.clearRect(0, 0, 1024, 512);
+      return;
+    }
+
+  while (radius < 32 || radius > 256 || Number.isNaN(radius)) {
+    if (radius < 32) {
+      alert("Your radius must be at least 32.")
+    }
+    if (radius > 256) {
+      alert("Your smiley face won't fit on the canvas.")
+    }
+    if (Number.isNaN(radius)) {
+      alert("Your radius is not a number.")
+    }
+  }
+  let eyes = 0.15 * radius;
+  let mouth = 0.7 * radius;
+
+   ctx.beginPath();
+   ctx.arc(512, 256, radius, 0, (2 * Math.PI));
+   ctx.stroke();
+   ctx.closePath();
+   ctx.beginPath();
+   ctx.arc(512, 256, mouth, 0, Math.PI);
+   ctx.stroke();
+   ctx.closePath();
+   ctx.beginPath();
+   ctx.arc(512 - (0.4 * radius), 256 - (0.4 * radius), eyes, 0, (2 * Math.PI));
+   ctx.stroke();
+   ctx.closePath();
+   ctx.beginPath();
+   ctx.arc(512 + (0.4 * radius), 256 - (0.4 * radius), eyes, 0, (2 * Math.PI));
+   ctx.stroke();
+   ctx.closePath();
 }
 
 /*
