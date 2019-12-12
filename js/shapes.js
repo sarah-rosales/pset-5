@@ -96,8 +96,6 @@ const drawRectangle = function() {
       ctx.clearRect(0, 0, 1024, 512);
       ctx.strokeRect(x_coordinate, y_coordinate, rect_width, rect_height);
 
-//FIX LATER AGGG
-
 }
 
 /*
@@ -168,7 +166,7 @@ const drawColoredRectangle = function() {
         }
         break;
     }
-//AHHH
+//ahhg
 }
 
 /*
@@ -176,14 +174,45 @@ const drawColoredRectangle = function() {
  */
 
 const drawTriangle = function() {
+
   const ctx = document.getElementById("student-canvas-4").getContext("2d");
-  let height = prompt("Side 1:")
-  let base = prompt("Side 2:")
-  let hypotenuse = prompt("Side 3:")
   ctx.clearRect(0, 0, 1024, 512);
 
+  let first_side = prompt("Side 1:")
+  let second_side = prompt("Side 2:")
+  let third_side = prompt("Side 3:")
+  let height = Math.min(first_side, second_side, third_side);
+  let hypotenuse = Math.max(first_side, second_side, third_side);
+  let base = Math.sqrt((hypotenuse * hypotenuse) - (height * height));
 
+  while (Number.isNaN(first_side) || first_side > 1024 || first_side < 1 ||
+         Number.isNaN(second_side) || second_side > 1024 || second_side < 1 ||
+         Number.isNaN(third_side) || third_side > 1024 || third_side < 1) {
+           if (first_side == null || second_side == null || third_side == null) {
+             ctx.clearRect(0, 0, 1024, 512);
+             return;
+           }
+           if (Number.isNaN(first_side) || Number.isNaN(second_side) || Number.isNaN(third_side)) {
+             alert("One of your sides is not a number.")
+           } else {
+             alert("That's not a valid right triangle.")
+           }
+         }
 
+  if (height > 512 || base > 1024 || hypotenuse > 1144) {
+    alert("Your triangle won't fit on the canvas.")
+  }
+
+  if ((height ** 2) + (base ** 2) == (hypotenuse ** 2)) {
+    ctx.beginPath();
+    ctx.moveTo(25, 25);
+    ctx.lineTo(25, 25 + height);
+    ctx.lineTo(base + 25, height + 25);
+    ctx.closePath();
+    ctx.stroke();
+  } else {
+    alert("That's not a valid right triangle.")
+  }
 }
 
 
